@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar - Mathvic Beauty</title>
+  <link rel="stylesheet" href="comprar.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="logo-container">
+    <img src="./Captura de tela 2025-10-14 234813.png" alt="Logo MathVic Beauty" class="logo-img">
+    <h1 class="logo-text">MathVic Beauty</h1>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="./index.html">Início</a></li>
+    <li><a href="./catalogo.html">Perfumaria</a></li>
+    <li><a href="./maquiagem.html">Catálogo MV Beauty</a></li>
+    <li><a href="./projeto.html">Projeto Social</a></li>
+    <li><a href="./comprar.html"> Carrinho</a></li>
+
+  </ul>
+</header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <section class="compra-container">
+    <div class="carrinho" id="carrinho">
+      <h2>Finalizar Compra</h2>
+
+      <form id="form-compra" class="form-compra">
+        <label>Nome Completo</label>
+        <input type="text" placeholder="Digite seu nome" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="seuemail@email.com" required>
+
+        <label>Endereço</label>
+        <input type="text" placeholder="Rua, número, bairro, cidade" required>
+
+        <label>Produtos e Quantidades</label>
+        <div id="produtos-container">
+          <div class="produto-item">
+            <select required name="produto[]">
+              <option value="">Escolha um produto</option>
+
+              <!-- PERFUMES -->
+              <optgroup label="💎 Coleção Aurora – Luxo & Sofisticação">
+                <option value="elysee-bloom">Elysée Bloom</option>
+                <option value="aurora">Aurora</option>
+                <option value="essence">Essence</option>
+              </optgroup>
+
+              <optgroup label="🌿 Coleção Essência Pura – Sustentabilidade & Natureza">
+                <option value="prisme">Prisme</option>
+                <option value="velo-vert">Vélo Vert</option>
+                <option value="purea-fluir">Purea-Fluir</option>
+              </optgroup>
+
+              <optgroup label="🌍 Coleção Unité – Diversidade & Inclusão">
+                <option value="unite">Unité</option>
+                <option value="iris-livre">Íris Livre</option>
+                <option value="allurex">Allurex</option>
+              </optgroup>
+
+              <optgroup label="✨ Coleção Essência da Marca – Identidade MathVic">
+                <option value="mv-essence">MV Essence</option>
+                <option value="victoire">Victoire</option>
+                <option value="mathic-glow">Mathic Glow</option>
+              </optgroup>
+
+              <!-- MAQUIAGEM -->
+              <optgroup label="💄 Linha MV Beauty – Rosto">
+                <option value="base-lumina">Base Lumina – Cobertura leve e natural</option>
+                <option value="po-satin">Pó Satin Veil – Toque aveludado e suave</option>
+                <option value="blush-rosely">Blush Rosely – Tom rosado natural</option>
+              </optgroup>
+
+              <optgroup label="🌸 Linha MV Beauty – Olhos">
+                <option value="paleta-dream">Paleta Dream Eyes – Tons pastéis e cintilantes</option>
+                <option value="mascara-violet">Máscara Violet Lash – Volume e leveza</option>
+                <option value="delineador-sky">Delineador Skyline – Cor intensa e precisão</option>
+              </optgroup>
+
+              <optgroup label="💋 Linha MV Beauty – Lábios">
+                <option value="batom-blush-rose">Batom Blush Rose – Textura cremosa</option>
+                <option value="gloss-crystal">Gloss Crystal Shine – Brilho e hidratação</option>
+                <option value="lip-tint-aurora">Lip Tint Aurora – Longa duração</option>
+              </optgroup>
+
+            </select>
+
+            <input type="number" name="quantidade[]" min="1" value="1" required>
+            <button type="button" class="remover-produto">Remover</button>
+          </div>
+        </div>
+
+        <button type="button" id="adicionar-produto">+ Adicionar outro produto</button>
+
+        <label>Forma de Pagamento</label>
+        <select required>
+          <option value="">Selecione</option>
+          <option value="cartao">Cartão de Crédito</option>
+          <option value="pix">Pix</option>
+          <option value="boleto">Boleto</option>
+        </select>
+
+        <button type="submit" class="btn-comprar">Finalizar Compra</button>
+      </form>
+    </div>
+
+    <!-- MENSAGEM DE SUCESSO -->
+    <div class="mensagem-sucesso" id="mensagem-sucesso">
+      <h2>🎉 Compra Realizada com Sucesso!</h2>
+      <p>Obrigado por escolher a <strong>Mathvic Beauty</strong> 💜</p>
+      <p>Você receberá um e-mail com os detalhes e poderá acompanhar o status da sua compra.</p>
+      <button id="btn-voltar">Voltar à Loja</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Mathvic Beauty - Todos os direitos reservados</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const form = document.getElementById('form-compra');
+    const carrinho = document.getElementById('carrinho');
+    const sucesso = document.getElementById('mensagem-sucesso');
+    const btnVoltar = document.getElementById('btn-voltar');
+    const produtosContainer = document.getElementById('produtos-container');
+    const adicionarProdutoBtn = document.getElementById('adicionar-produto');
+
+    // Finalizar compra
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      carrinho.style.display = 'none';
+      sucesso.style.display = 'flex';
+    });
+
+    // Voltar à loja
+    btnVoltar.addEventListener('click', () => {
+      window.location.href = "index.html";
+    });
+
+    // Adicionar novo produto
+    adicionarProdutoBtn.addEventListener('click', () => {
+      const novoProduto = produtosContainer.firstElementChild.cloneNode(true);
+      novoProduto.querySelector('select').value = '';
+      novoProduto.querySelector('input').value = 1;
+      produtosContainer.appendChild(novoProduto);
+    });
+
+    // Remover produto
+    produtosContainer.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remover-produto')) {
+        const item = e.target.closest('.produto-item');
+        if (produtosContainer.children.length > 1) {
+          produtosContainer.removeChild(item);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
+

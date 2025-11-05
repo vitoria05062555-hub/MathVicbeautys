@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleza que Transforma | MathVic Beauty</title>
+  <link rel="stylesheet" href="projeto.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="logo-container">
+    <img src="./Captura de tela 2025-10-14 234813.png" alt="Logo MathVic Beauty" class="logo-img">
+    <h1 class="logo-text">MathVic Beauty</h1>
+  </div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="./index.html">Início</a></li>
+    <li><a href="./catalogo.html">Perfumaria</a></li>
+    <li><a href="./maquiagem.html">Catálogo MV Beauty</a></li>
+    <li><a href="./projeto.html">Projeto Social</a></li>
+    <li><a href="./comprar.html"> Carrinho</a></li>
+  </ul>
+</header>
+
+  <!-- 🩷 Seção do Projeto -->
+  <section class="projeto-container">
+    <div class="conteudo">
+      <h1><strong>Projeto <span>Beleza que Transforma</span></strong></h1>
+      <p>
+        O projeto <strong>“Beleza que Transforma”</strong> nasceu da crença de que a beleza pode mudar vidas.
+        A <strong>MathVic Beauty</strong> oferece <strong>cursos gratuitos</strong> de maquiagem, estética e cuidados pessoais
+        para pessoas em situação de vulnerabilidade, promovendo <strong>autoestima, inclusão</strong> e
+        <strong>independência financeira</strong>.
+      </p>
+      <p>
+        Mais do que aparência, é sobre <strong>transformar vidas</strong> e criar <strong>novas oportunidades</strong>.
+        💅✨ Autoestima não é luxo, é um direito.
+      </p>
+    </div>
+
+    <div class="galeria">
+      <div class="img-card"><img src="./imagem de mulheres e.png" alt="Curso de Maquiagem"></div>
+      <div class="img-card"><img src="./uma mulher realizand.png" alt="Cuidados Pessoais"></div>
+      <div class="img-card"><img src="./várias mulheres part.png" alt="Oficina de Estética"></div>
+      <div class="img-card"><img src="./coloque o perfume Pr.png" alt="Inclusão Social"></div>
+    </div>
+  </section>
+
+  <!-- 📝 Formulário de Indicação -->
+  <section class="indicacao">
+    <h2>💌 Indique alguém para o projeto</h2>
+    <p>
+      Se você conhece alguém que está passando por um momento difícil e poderia se beneficiar do
+      <strong>Beleza que Transforma</strong>, preencha o formulário abaixo e nos ajude a transformar mais vidas.
+    </p>
+
+    <form class="form-indicacao" onsubmit="enviarIndicacao(event)">
+      <div class="form-group">
+        <label for="seuNome">Seu nome</label>
+        <input type="text" id="seuNome" name="seuNome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Seu e-mail</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="nomeIndicado">Nome da pessoa indicada</label>
+        <input type="text" id="nomeIndicado" name="nomeIndicado" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contatoIndicado">Contato da pessoa (telefone, e-mail, etc)</label>
+        <input type="text" id="contatoIndicado" name="contatoIndicado">
+      </div>
+
+      <div class="form-group">
+        <label for="motivo">Por que você acredita que ela deve participar?</label>
+        <textarea id="motivo" name="motivo" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-enviar">Enviar Indicação</button>
+    </form>
+  </section>
+
+  <footer class="rodape">
+    <p>© 2025 MathVic Beauty | Projeto Beleza que Transforma 💅</p>
+  </footer>
+
+
+<script>
+function enviarIndicacao(event) {
+  event.preventDefault();
+  document.querySelector(".form-indicacao").reset();
+
+  const msg = document.createElement("div");
+  msg.className = "msg-sucesso";
+  msg.innerHTML = `
+    ✅ <strong>Indicação enviada com sucesso!</strong> <br><br>
+    Obrigado por ajudar a transformar vidas com o projeto
+    <strong>Beleza que Transforma</strong> 💖
+  `;
+  
+  document.body.appendChild(msg);
+
+  setTimeout(() => {
+    msg.classList.add("hide");
+    setTimeout(() => msg.remove(), 600);
+  }, 3500);
+}
+</script>
+
+</body>
+</html>
+

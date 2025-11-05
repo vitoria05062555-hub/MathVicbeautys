@@ -1,0 +1,484 @@
+/* ------------------ */
+/* Paleta de cores e fontes */
+:root {
+  --azul: #A3CEF1;
+  --roxo: #C7B3E3;
+  --rosa: #F7D1DC;
+  --preto: #1f1f1f;
+  --branco: #fff;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--branco);
+  color: var(--preto);
+  scroll-behavior: smooth;
+  
+}
+
+:root {
+  --azul: #A3CEF1;
+  --roxo: #C7B3E3;
+  --rosa: #F7D1DC;
+  --preto: #1f1f1f;
+  --branco: #fff;
+}
+:root {
+  --azul: #A3CEF1;
+  --roxo: #C7B3E3;
+  --rosa: #F7D1DC;
+  --branco: #FFFFFF;
+}
+
+/* ===== GRADIENTE PADRÃO MATHVIC BEAUTY ===== */
+.fundo-gradient {
+  background: linear-gradient(135deg, var(--rosa), var(--roxo), var(--azul), var(--branco));
+}
+
+
+/* ===== ANIMAÇÃO SUAVE DO GRADIENTE ===== */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* ======= NAVBAR ======= */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 91,5%;
+  z-index: 1000;
+  background: linear-gradient(90deg, var(--rosa), var(--roxo), var(--azul));
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 80px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo estilizada */
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--branco);
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Lista de links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: var(--branco);
+  font-size: 1rem;
+  transition: 0.3s ease;
+  padding: 5px 0;
+}
+
+/* Efeito hover com sublinhado gradiente */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--azul), var(--roxo));
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--branco);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.nav-links a:hover::after {
+  width: 91%;
+}
+
+/* Navbar ao rolar a página */
+.navbar.scrolled {
+  background: linear-gradient(90deg, var(--azul), var(--roxo));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 14px 70px;
+}
+
+/* ======= MENU RESPONSIVO ======= */
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 91%;
+    background: linear-gradient(180deg, var(--rosa), var(--roxo));
+    border-radius: 20px;
+    padding: 15px 0;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: var(--branco);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .menu-icon.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}
+
+
+/* Container da logo e texto */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre imagem e texto */
+}
+
+/* Imagem da logo */
+.logo-img {
+  width: 45px;   /* tamanho pequeno e proporcional */
+  height: 45px;  /* mantém formato quadrado */
+  object-fit: contain;
+  border-radius: 8px; /* opcional: suaviza bordas */
+}
+
+/* Texto da logo */
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--preto);
+  margin: 0;
+}
+
+
+/* ------------------ */
+/* SEÇÃO INÍCIO (HERO) */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  height: 75vh; /* ⬅️ diminuída levemente (antes 85vh) */
+  background: url('./EU E MO PROPAGANDA.jpg') center/contain no-repeat; /* ⬅️ contain mantém proporção */
+  background-size: 100% auto; /* ⬅️ reduz apenas a altura */
+  border-radius: 0 0 25px 25px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 25px 25px;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  max-width: 1100px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+#img-inicio {
+  width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-content {
+  max-width: 520px;
+  text-align: left;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: var(--preto);
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--roxo);
+  color: var(--branco);
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--azul);
+  transform: scale(1.05);
+}
+
+/* ------------------ */
+/* EMPRESA */
+.empresa {
+  text-align: center;
+  padding: 90px 20px;
+  background-color: #faf9fb;
+}
+
+.empresa h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--preto);
+}
+
+.empresa p {
+  max-width: 850px;
+  margin: 10px auto;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* ------------------ */
+/* COLEÇÃO */
+.colecao {
+  padding: 90px 20px;
+  background-color: var(--branco);
+  text-align: center;
+}
+
+.colecao h2 {
+  font-size: 2rem;
+  color: var(--preto);
+  margin-bottom: 40px;
+}
+
+.colecao-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.perfume-img {
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.colecao-texto {
+  max-width: 500px;
+  text-align: left;
+}
+
+.colecao-texto h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: var(--preto);
+}
+
+.colecao-texto ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.colecao-texto li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.btn-container {
+  margin-top: 20px;
+}
+
+.btn-large {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
+/* ------------------ */
+/* COMPRAS */
+.compras {
+  text-align: center;
+  padding: 90px 20px;
+  background-color: #faf9fb;
+}
+
+.compras h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.compras p {
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+}
+
+.detalhe {
+  width: 150px;
+  margin: 20px 0;
+  border-radius: 15px;
+}
+
+.btn-shop {
+  background-color: var(--rosa);
+}
+
+.btn-shop:hover {
+  background-color: var(--roxo);
+}
+
+/* ------------------ */
+/* PROJETO SOCIAL */
+.projeto {
+  text-align: center;
+  padding: 90px 20px;
+  background-color: var(--branco);
+}
+
+.projeto h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.projeto p {
+  font-size: 1.05rem;
+  max-width: 800px;
+  margin: 10px auto;
+  line-height: 1.7;
+}
+
+.btn.conheca {
+  background-color: var(--azul);
+}
+
+.btn.conheca:hover {
+  background-color: var(--roxo);
+}
+
+/* ------------------ */
+/* FOOTER */
+.footer {
+  background-color: var(--roxo);
+  color: var(--branco);
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 25px 25px 0 0;
+}
+
+.footer a {
+  color: var(--branco);
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: var(--rosa);
+}
+
+/* ------------------ */
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 75px;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.97);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right 0.4s ease;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding-top: 120px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  #img-inicio {
+    width: 300px;
+  }
+
+  .colecao-container {
+    flex-direction: column;
+  }
+}

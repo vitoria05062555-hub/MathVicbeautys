@@ -1,0 +1,423 @@
+/* Paleta de cores */
+:root {
+  --azul: #A3CEF1;
+  --roxo: #C7B3E3;
+  --rosa: #F7D1DC;
+  --preto: #1f1f1f;
+  --branco: #fff;
+}
+
+/* BODY */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--rosa);
+  color: var(--preto);
+}
+
+/* HEADER / NAVBAR */
+.header {
+  background-color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex-wrap: wrap;
+}
+/* ======= NAVBAR ======= */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 91,5%;
+  z-index: 1000;
+  background: linear-gradient(90deg, var(--rosa), var(--roxo), var(--azul));
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 80px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo estilizada */
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: var(--branco);
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Lista de links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: var(--branco);
+  font-size: 1rem;
+  transition: 0.3s ease;
+  padding: 5px 0;
+}
+
+/* Efeito hover com sublinhado gradiente */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--azul), var(--roxo));
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--branco);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Navbar ao rolar a página */
+.navbar.scrolled {
+  background: linear-gradient(90deg, var(--azul), var(--roxo));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 14px 70px;
+}
+
+/* ======= MENU RESPONSIVO ======= */
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(180deg, var(--rosa), var(--roxo));
+    border-radius: 20px;
+    padding: 15px 0;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: var(--branco);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .menu-icon.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+}
+
+
+/* Container da logo e texto */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaço entre imagem e texto */
+}
+
+/* Imagem da logo */
+.logo-img {
+  width: 45px;   /* tamanho pequeno e proporcional */
+  height: 45px;  /* mantém formato quadrado */
+  object-fit: contain;
+  border-radius: 8px; /* opcional: suaviza bordas */
+}
+
+/* Texto da logo */
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--preto);
+  margin: 0;
+}
+
+
+/* ------------------ */
+/* SEÇÃO INÍCIO (HERO) */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+  height: 85vh;
+  background: url('./EU E MO PROPAGANDA.jpg') center/cover no-repeat;
+  border-radius: 0 0 25px 25px;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 25px 25px;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  max-width: 1100px;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+#img-inicio {
+  width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-content {
+  max-width: 520px;
+  text-align: left;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: var(--preto);
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--roxo);
+  color: var(--branco);
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--azul);
+  transform: scale(1.05);
+}
+
+/* CONTAINER COMPRA */
+.compra-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 10%;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* CARRINHO */
+.carrinho {
+  background-color: var(--branco);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.carrinho h2 {
+  color: var(--roxo);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* FORMULÁRIO */
+.form-compra label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 500;
+}
+
+.form-compra input,
+.form-compra select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.form-compra input:focus,
+.form-compra select:focus {
+  border-color: var(--roxo);
+  outline: none;
+}
+
+/* BOTÃO COMPRAR */
+.btn-comprar {
+  background-color: var(--roxo);
+  color: var(--branco);
+  border: none;
+  padding: 12px;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.btn-comprar:hover {
+  background-color: var(--azul);
+}
+
+/* PRODUTOS */
+#produtos-container .produto-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#produtos-container select {
+  flex: 2;
+}
+
+#produtos-container input {
+  width: 60px;
+  flex: 1;
+}
+
+.remover-produto {
+  background-color: #ff6b6b;
+  color: var(--branco);
+  border: none;
+  padding: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remover-produto:hover {
+  background-color: #ff3b3b;
+}
+
+#adicionar-produto {
+  background-color: var(--roxo);
+  color: var(--branco);
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#adicionar-produto:hover {
+  background-color: var(--azul);
+}
+
+/* MENSAGEM DE SUCESSO */
+.mensagem-sucesso {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: var(--branco);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.mensagem-sucesso h2 {
+  color: var(--roxo);
+}
+
+.mensagem-sucesso button {
+  background-color: var(--roxo);
+  color: var(--branco);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.mensagem-sucesso button:hover {
+  background-color: var(--azul);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px 10%;
+  background-color: var(--roxo);
+  color: var(--branco);
+  margin-top: 40px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .compra-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .carrinho, .mensagem-sucesso {
+    width: 90%;
+  }
+  
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
+
